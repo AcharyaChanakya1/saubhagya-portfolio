@@ -7,6 +7,8 @@ import StarCursor from './components/StarCursor.jsx'
 import SkyProgress from './components/SkyProgress.jsx'
 import PillNav from './components/PillNav.jsx'
 import SoundToggle from './components/SoundToggle.jsx'
+import TopBar from './components/TopBar.jsx'
+import Entrance from './components/Entrance.jsx'
 import Hero from './sections/Hero.jsx'
 import Dots from './sections/Dots.jsx'
 import Receipts from './sections/Receipts.jsx'
@@ -37,6 +39,8 @@ export default function App() {
 
   return (
     <>
+      <Entrance />
+      <TopBar />
       <StarCursor />
       <SkyProgress />
       <PillNav />

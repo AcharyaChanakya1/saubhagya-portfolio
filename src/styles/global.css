@@ -1,6 +1,6 @@
 /* ============ TOKENS (DESIGN-SPEC §2) ============ */
 :root {
-  --paper: #F6F3EC;
+  --paper: #F5F1E7;
   --ink: #191713;
   --ink-faint: rgba(25, 23, 19, 0.12);
   --ink-soft: rgba(25, 23, 19, 0.62);
@@ -32,13 +32,13 @@ body {
   overflow-x: hidden;
 }
 
-/* subtle paper grain */
+/* sandpaper grain — coarser, warmer (v2 texture pass) */
 body::before {
   content: '';
   position: fixed; inset: 0;
   pointer-events: none; z-index: 1;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.07 0 0 0 0.02 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.1 0 0 0 0 0.07 0 0 0 0.028 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection { background: var(--iris); color: var(--paper); }
@@ -258,6 +258,126 @@ button { font-family: inherit; cursor: pointer; }
 .sound-pill.on { color: #fff; }
 .sound-pill.on .sound-star { color: var(--gold); transform: rotate(180deg); }
 @media (max-width: 640px) { .sound-pill { bottom: 16px; left: 16px; } }
+
+/* ============ TOP PROGRESS BAR ============ */
+.top-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 80;
+  background: linear-gradient(90deg, var(--iris), var(--gold));
+  transform-origin: 0 50%;
+}
+
+/* ============ ENTRANCE — RUMI DARWAZA ============ */
+.entrance {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--paper);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px;
+}
+.rd-svg { width: min(540px, 82vw); height: auto; overflow: visible; }
+.rd-path { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.rd-path.rd-iris { stroke: var(--iris); stroke-width: 1.6; }
+.rd-star-el { fill: var(--gold); }
+.rd-caption {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); opacity: 0;
+}
+.rd-skip {
+  position: absolute; bottom: 26px; right: 26px;
+  background: none; border: 1px solid var(--ink-faint);
+  border-radius: 999px; padding: 8px 18px;
+  font-size: 12px; letter-spacing: 0.06em; color: var(--ink-soft);
+  transition: color .2s, border-color .2s;
+}
+.rd-skip:hover { color: var(--iris); border-color: var(--iris); }
+
+/* ============ CHAPTER 04 · THE PLAYBOOK (notebook book) ============ */
+.book-stage {
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px var(--pad-x);
+}
+.book {
+  position: relative;
+  width: min(680px, 90vw);
+  height: min(64svh, 500px);
+  perspective: 1400px;
+}
+.book-page, .book-final {
+  position: absolute; inset: 0;
+  background: #FBF8F0;
+  border: 1px solid var(--ink-faint);
+  border-radius: 6px;
+  box-shadow: 0 14px 44px rgba(25, 23, 19, 0.09);
+  padding: 44px 48px 40px 84px;
+  display: flex; flex-direction: column; justify-content: center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  /* ruled notebook lines */
+  background-image:
+    linear-gradient(to right, transparent 62px, rgba(201, 162, 39, 0.28) 62px, rgba(201, 162, 39, 0.28) 63px, transparent 63px),
+    repeating-linear-gradient(to bottom, transparent 0 30px, rgba(76, 67, 128, 0.09) 30px 31px);
+}
+/* folded corner */
+.book-page::after {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  border-style: solid; border-width: 0 26px 26px 0;
+  border-color: transparent var(--paper) rgba(25, 23, 19, 0.07) transparent;
+}
+.page-kicker {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.page-title {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+  line-height: 1.1; margin-bottom: 14px;
+}
+.page-copy { color: var(--ink-soft); font-size: clamp(0.98rem, 1.4vw, 1.12rem); max-width: 30em; }
+.page-num {
+  position: absolute; bottom: 18px; right: 24px;
+  font-size: 11px; letter-spacing: 0.12em; color: var(--ink-soft);
+}
+.book-final { justify-content: center; }
+.final-row {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--ink-faint);
+}
+.final-row:last-of-type { border-bottom: none; }
+.final-num { font-size: 11px; letter-spacing: 0.14em; color: var(--gold); }
+.final-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.05rem, 2vw, 1.4rem); }
+.book-tagline {
+  margin-top: 22px;
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+  color: var(--ink);
+}
+.book-tagline b { color: var(--iris); font-weight: 600; }
+
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .book-stage { min-height: 0; padding-top: 10px; }
+  .book { height: auto; perspective: none; display: grid; gap: 18px; }
+  .book-page, .book-final {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 30px 26px 34px 60px;
+  }
+}
+
+/* ============ FOOTER SKYLINE ============ */
+.skyline {
+  width: min(300px, 70vw);
+  margin: 0 auto 8px;
+  display: block;
+  opacity: 0.5;
+}
+.skyline path { stroke: var(--ink); stroke-width: 1.4; fill: none; stroke-linecap: round; }
+.skyline .sky-gold { fill: var(--gold); stroke: none; }
 
 /* ============ CHAPTER 02 · RECEIPTS ============ */
 .receipts { background: var(--night); color: var(--paper-night); }
