@@ -1,0 +1,8 @@
+node_modules/
+design/node_modules/
+design/package.json
+design/package-lock.json
+design/extract.mjs
+design/cv.pdf
+*.log
+.DS_Store
