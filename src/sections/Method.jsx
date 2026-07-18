@@ -44,7 +44,7 @@ export default function Method() {
 
     const mm = gsap.matchMedia()
 
-    mm.add('(min-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
       const pages = gsap.utils.toArray('.book-page', stage)
       const final = stage.querySelector('.book-final')
 

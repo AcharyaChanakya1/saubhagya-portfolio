@@ -71,7 +71,7 @@ export default function Dots() {
 
     const mm = gsap.matchMedia()
 
-    mm.add('(min-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
       const getDist = () => Math.max(0, track.scrollWidth - window.innerWidth)
 
       const tween = gsap.to(track, {
@@ -132,17 +132,7 @@ export default function Dots() {
       })
     })
 
-    mm.add('(max-width: 767px), (prefers-reduced-motion: reduce)', () => {
-      // vertical fallback: stars flare on normal scroll
-      gsap.utils.toArray('.entry-star', track).forEach((star) => {
-        gsap.fromTo(star,
-          { scale: 0, transformOrigin: 'center' },
-          {
-            scale: 1, duration: 0.55, ease: 'back.out(2.4)',
-            scrollTrigger: { trigger: star, start: 'top 78%' },
-          })
-      })
-    })
+    // reduced-motion users get the static vertical stack (CSS handles layout)
 
     return () => mm.revert()
   }, [])

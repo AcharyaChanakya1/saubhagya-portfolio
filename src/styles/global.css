@@ -229,8 +229,14 @@ button { font-family: inherit; cursor: pointer; }
 .station-copy { color: var(--ink-soft); font-size: clamp(0.95rem, 1.3vw, 1.05rem); max-width: 30em; }
 .station-copy strong { color: var(--ink); font-weight: 600; }
 
-/* mobile / reduced-motion: the journey stacks vertically, no pin */
-@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+/* phones ride the same horizontal journey — just tighter stations */
+@media (max-width: 640px) {
+  .station { width: min(78vw, 340px); min-height: 56svh; }
+  .station-year { font-size: 4.2rem; }
+}
+
+/* reduced-motion only: the journey stacks vertically, no pin */
+@media (prefers-reduced-motion: reduce) {
   .dots-track {
     flex-direction: column;
     width: auto;
@@ -369,7 +375,19 @@ button { font-family: inherit; cursor: pointer; }
 }
 .book-tagline b { color: var(--iris); font-weight: 600; }
 
-@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+/* phones turn the same pages — just tighter margins */
+@media (max-width: 640px) {
+  .book { height: min(68svh, 520px); }
+  .book-page, .book-final { padding: 30px 22px 36px 58px; }
+  .book-page, .book-final {
+    background-image:
+      linear-gradient(to right, transparent 42px, rgba(201, 162, 39, 0.28) 42px, rgba(201, 162, 39, 0.28) 43px, transparent 43px),
+      repeating-linear-gradient(to bottom, transparent 0 30px, rgba(76, 67, 128, 0.09) 30px 31px);
+  }
+}
+
+/* reduced-motion only: pages stack, no pin */
+@media (prefers-reduced-motion: reduce) {
   .book-stage { min-height: 0; padding-top: 10px; }
   .book { height: auto; perspective: none; display: grid; gap: 18px; }
   .book-page, .book-final {
@@ -633,7 +651,7 @@ button { font-family: inherit; cursor: pointer; }
   position: fixed; inset: 0; z-index: 999;
   pointer-events: none;
 }
-@media (hover: none), (pointer: coarse) { .star-cursor-canvas { display: none; } }
+/* touch devices keep the canvas: tap-bursts + shooting stars live there */
 
 /* ============ WORD REVEAL ============ */
 .wr-word { display: inline-block; }
