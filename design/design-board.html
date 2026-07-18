@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saubhagya · Design Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F3EC; --ink:#191713; --ink-faint:rgba(25,23,19,.12);
+    --iris:#55498F; --gold:#C9A227; --night:#14121F; --paper-night:#EDE9DE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Space Grotesk',sans-serif;padding:56px 6vw 120px}
+  .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--iris)}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.4rem,5vw,4rem);margin:.3em 0 .1em}
+  .sub{font-size:15px;opacity:.65;max-width:520px}
+  section{margin-top:72px}
+  h2{font-family:'Fraunces',serif;font-weight:500;font-size:1.6rem;margin-bottom:8px}
+  .rule{height:1px;background:var(--ink-faint);margin:14px 0 28px}
+
+  /* palette */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+  .sw{border-radius:10px;overflow:hidden;border:1px solid var(--ink-faint)}
+  .sw .chip{height:88px}
+  .sw .lab{padding:10px 12px;font-size:12px;line-height:1.5;background:#fff}
+  .sw .lab b{display:block;font-size:12.5px}
+  .sw .lab span{opacity:.55}
+
+  /* type */
+  .spec{display:flex;flex-direction:column;gap:26px}
+  .spec .display{font-family:'Fraunces',serif;font-weight:560;font-size:clamp(3.4rem,9vw,7.5rem);line-height:.95;letter-spacing:-.01em}
+  .spec .display i{font-style:italic;color:var(--iris)}
+  .spec .bodycopy{font-size:17.5px;line-height:1.65;max-width:560px}
+  .spec .num{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;color:var(--gold)}
+  .caption{font-size:11px;letter-spacing:.05em;opacity:.45;margin-top:6px}
+
+  /* star + line sample */
+  .sky{background:var(--night);border-radius:14px;padding:44px 40px;color:var(--paper-night);position:relative;overflow:hidden}
+  .sky svg{width:100%;max-width:640px;display:block;margin:0 auto}
+  .sky .quip{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;margin-top:22px;opacity:.9}
+
+  /* wireframes */
+  .frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+  .frame{border:1.5px solid var(--ink);border-radius:8px;background:#fff;aspect-ratio:3/4;padding:10px;display:flex;flex-direction:column;gap:6px;position:relative}
+  .frame .tag{position:absolute;top:-11px;left:10px;background:var(--paper);padding:0 8px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--iris)}
+  .blk{background:var(--ink-faint);border-radius:4px}
+  .blk.title{height:26%;background:repeating-linear-gradient(-45deg,var(--ink-faint),var(--ink-faint) 4px,transparent 4px,transparent 9px)}
+  .blk.line{height:8px;width:70%}
+  .blk.line.short{width:45%}
+  .blk.fill{flex:1}
+  .blk.night{background:var(--night)}
+  .frame .fnote{font-size:10.5px;line-height:1.45;opacity:.6;margin-top:auto}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block}
+</style>
+</head>
+<body>
+
+  <div class="meta">Saubhagya · Portfolio · Design Board v1 — replaces Figma step</div>
+  <h1>Connecting the Dots</h1>
+  <p class="sub">A strategist sees the pattern before it exists. The site performs it: moments and numbers appear as stars; scrolling draws the lines between them.</p>
+
+  <section>
+    <h2>1 · Palette — paper by day, sky by night</h2>
+    <div class="rule"></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#F6F3EC;border-bottom:1px solid var(--ink-faint)"></div><div class="lab"><b>Paper #F6F3EC</b><span>page background — 95% of the site</span></div></div>
+      <div class="sw"><div class="chip" style="background:#191713"></div><div class="lab"><b>Ink #191713</b><span>all primary text</span></div></div>
+      <div class="sw"><div class="chip" style="background:#55498F"></div><div class="lab"><b>Iris #55498F</b><span>links, hovers, drawn lines</span></div></div>
+      <div class="sw"><div class="chip" style="background:#C9A227"></div><div class="lab"><b>Gold #C9A227</b><span>cursor star, key numbers only</span></div></div>
+      <div class="sw"><div class="chip" style="background:#14121F"></div><div class="lab"><b>Night #14121F</b><span>Chapter 02 inversion only</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2 · Type — Fraunces speaks, Space Grotesk works</h2>
+    <div class="rule"></div>
+    <div class="spec">
+      <div>
+        <div class="display">saubhagya<i>.</i></div>
+        <div class="caption">Fraunces · hero display — the serif with a wink (the "funky" lives here, quietly)</div>
+      </div>
+      <div>
+        <p class="bodycopy">Everyone has a marketing budget. Few have a marketing brain. Since 2016 I've turned wedding shoots, real-estate listings, and one very stubborn market into repeatable, measurable growth.</p>
+        <div class="caption">Space Grotesk · body 17.5px — calm, modern, slightly quirky digits</div>
+      </div>
+      <div>
+        <div class="num">₹1,00,00,000</div>
+        <div class="caption">Space Grotesk bold · the count-up numbers — gold reserved for the one number that matters</div>
+      </div>
+      <div>
+        <div class="meta">26.85° N · 80.95° E — Lucknow, India</div>
+        <div class="caption">coordinate label style — section markers, star-map flavour</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3 · The signature move — stars and drawn lines</h2>
+    <div class="rule"></div>
+    <div class="sky">
+      <svg viewBox="0 0 640 220" fill="none">
+        <line x1="90" y1="160" x2="300" y2="70" stroke="#55498F" stroke-width="1.5" stroke-dasharray="4 5" opacity=".85"/>
+        <line x1="300" y1="70" x2="540" y2="130" stroke="#55498F" stroke-width="1.5" stroke-dasharray="4 5" opacity=".85"/>
+        <g fill="#C9A227">
+          <path d="M90 148 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4z"/>
+          <path d="M300 58 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4z"/>
+          <path d="M540 118 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4z"/>
+        </g>
+        <g fill="#EDE9DE" font-family="Space Grotesk" font-size="12" letter-spacing="1.5" opacity=".8">
+          <text x="60" y="196">2016 · WEDDINGS</text>
+          <text x="252" y="42">2019 · REAL ESTATE</text>
+          <text x="480" y="166">2024 · THE CRORE</text>
+        </g>
+      </svg>
+      <div class="quip">Scroll draws the line. The pattern was always there.</div>
+    </div>
+    <div class="caption">This is also the Chapter 02 night inversion — the only dark moment on the site.</div>
+  </section>
+
+  <section>
+    <h2>4 · The six frames <span style="font-size:.6em;opacity:.5">(what would have been Figma)</span></h2>
+    <div class="rule"></div>
+    <div class="frames">
+      <div class="frame"><span class="tag">1 · Hero</span>
+        <div class="blk line short" style="align-self:flex-end"></div>
+        <div class="blk title" style="margin-top:auto"></div>
+        <div class="blk line"></div>
+        <div class="blk line short"></div>
+        <div class="fnote">Giant name low-left · mini 3-star arc draws on load · coordinates top-right · scroll cue</div>
+      </div>
+      <div class="frame"><span class="tag">2 · The Dots</span>
+        <div class="blk line short"></div>
+        <div class="blk fill" style="background:transparent;border:1.5px dashed var(--ink-faint);display:flex;align-items:center;justify-content:center"><span class="dot"></span><span style="width:34px;height:1px;background:var(--iris);display:inline-block;margin:0 3px"></span><span class="dot"></span><span style="width:34px;height:1px;background:var(--iris);display:inline-block;margin:0 3px"></span><span class="dot"></span></div>
+        <div class="blk line"></div><div class="blk line short"></div>
+        <div class="fnote">Career constellation, line drawn by scroll · story text illuminates beside it</div>
+      </div>
+      <div class="frame"><span class="tag">3 · Receipts</span>
+        <div class="blk fill night" style="display:flex;align-items:center;justify-content:center;color:#C9A227;font-weight:700;font-size:1.3rem">₹1Cr+</div>
+        <div class="fnote">PINNED night scene · stats flare + count up one by one · releases after the last</div>
+      </div>
+      <div class="frame"><span class="tag">4 · Proof</span>
+        <div class="blk line short"></div>
+        <div class="blk" style="height:26%"></div>
+        <div class="blk" style="height:26%"></div>
+        <div class="blk" style="height:26%"></div>
+        <div class="fnote">2–4 case cards · one sharp result line each · subtle cursor tilt</div>
+      </div>
+      <div class="frame"><span class="tag">5 · Method</span>
+        <div class="blk line short"></div>
+        <div class="blk line"></div><div class="blk line"></div><div class="blk line short"></div><div class="blk line"></div>
+        <div class="fnote">3–4 principles · spotlight text — words light up as you read past them</div>
+      </div>
+      <div class="frame"><span class="tag">6 · Next Dot</span>
+        <div class="blk fill" style="background:transparent;border:1.5px dashed var(--ink-faint);display:flex;align-items:center;justify-content:center"><span class="dot" style="width:12px;height:12px"></span></div>
+        <div class="blk line" style="align-self:center"></div>
+        <div class="fnote">"Your business could be the next dot." · one CTA · tiny footer</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
