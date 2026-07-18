@@ -68,7 +68,7 @@ Ranked "almost every client" in top-10 GMB local ranking; strong Google Ads too.
 
 | Client | Business | Location | What he did | Result |
 |---|---|---|---|---|
-| **Tathastu Events** | Event management, 20 yrs old | Lucknow | Handling now (currently) | *number TBD — ask* |
+| **Tathastu Events** | Event management, 20 yrs old | Lucknow | Handling now (currently) | Too new for numbers — frame as current engagement / "currently growing," NO stat |
 | **Hari Om Electricals** | Symphony cooler showroom / wholesaler, 2 decades old | Gurugram | Google Ads + social ads (this season) | **6,000–8,000 website purchases** + **100+ calls/day** via Google My Business |
 | **Perfect Interiors & Decorators** | Interior design & decor | Dehradun | Meta Ads, **₹50K spend** | **₹40–50 lakh** in interior projects landed |
 
@@ -134,10 +134,55 @@ first, then high-end local brands) who want director-level marketing thinking
 without a corporate agency. He effectively becomes their outsourced marketing
 director.
 
+## Voice / Tagline direction (locked 2026-07-18)
+- Mix of **strategic-calm** + **director energy**. Drop "lethal by campaign" energy.
+- **The tagline's job (his words):** hit the client like *"wtf, am I missing
+  something? …oh, I actually need his guidance."* → create productive doubt
+  about their current marketing, then position Saubhagya as the answer.
+- Mechanism: question/confront the reader's assumptions, not brag about him.
+  Setup → turn. Copy speaks TO the business owner about THEIR blind spot.
+- **HARD RULE (his feedback 2026-07-18): NEVER demean the reader.** The client
+  is a successful owner who built a real business — the copy must respect that.
+  "Everyone has a marketing budget. Few have a marketing brain" is KILLED — it
+  calls the reader dumb. The doubt must target their current MARKETING (the
+  post-uploaders, the lazy agencies, the wasted spend), never their intelligence.
+  Formula: honor what they built → question whether their marketing matches it.
+- Headline candidates round 2 (2026-07-18), grouped by angle:
+  - QUIET SUSPICION: "Your ads run. Your posts go up. So why does growth feel
+    like luck?" · "If your marketing stopped tomorrow, would your sales even
+    notice?" · "Busy marketing and growing marketing look identical — until
+    someone measures."
+  - MISMATCH: "You spent 20 years building a name. Your marketing thinks in
+    30-day packages." · "Your business kept growing. Did your marketing keep
+    up?" · "Everyone in the city knows your name. Your marketing should act
+    like it."
+  - DIRECTOR ANSWER (sub-line use): "Strategy first. Posts, ads, and SEO follow
+    orders." · "A marketing director's brain — without the corporate payroll." ·
+    "I don't sell marketing. I run it like it's my own business."
+  - RECOMMENDED HERO PAIR: hook = "Your ads run. Your posts go up. So why does
+    growth feel like luck?" + sub = "I'm Saubhagya Dubey — a growth marketer who
+    works like your marketing director. Research, strategy, ads, SEO, reporting:
+    one brain, fully accountable."
+  - AWAITING his pick/reaction.
+
+## Deploy (decided 2026-07-18)
+- Netlify free subdomain first; custom domain deferred until later.
+
+## Contact / CTA (locked 2026-07-18)
+- **PRIMARY button: WhatsApp** → +91 87368 60717 (confirmed WhatsApp).
+  Use wa.me/918736860717 with a prefilled message.
+- **Secondary:** email saubhagya.dubey98@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/saubhagya-dubey-सौभाग्य-दुबे-6b5241166
+  (contains Devanagari — MUST percent-encode the href; display text can stay clean)
+- **No other links** (no Instagram, no deck). Keep contact minimal.
+
 ## OPEN — still need from Saubhagya
 - Which 3 numbers headline Chapter 02, and the ONE gold hero number
 - Real names OK publicly, or anonymize? (Azea, Invest 101, Medha are on CV already)
-- Photo of him on site — yes/no
+- Photo: STYLIZED line-art / artistic portrait via Higgsfield — NOT a literal
+  face photo. Should read as "a person / the strategist" while fitting the
+  paper+stars aesthetic. Can be symbolic (silhouette + constellation) rather than
+  his actual face. Source photo from him = optional. (Decided 2026-07-18)
 - Personal brand vs Chanakya Digital — separate or connected?
 - Domain preference
 - Reconcile the 2016 vs 2017 wedding-firm start date
