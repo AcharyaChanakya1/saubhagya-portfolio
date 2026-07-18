@@ -33,7 +33,7 @@ ticker bar, no "You've seen X%" gauge (replaced — see §5.5).
 | `--paper` | `#F6F3EC` | Page background (warm bone, not white) |
 | `--ink` | `#191713` | All primary text (warm near-black) |
 | `--ink-faint` | `rgba(25,23,19,0.12)` | Hairlines, constellation guide-lines |
-| `--iris` | `#55498F` | The intellect accent: links, active states, drawn constellation lines |
+| `--iris` | `#4C4380` | "Midnight iris" — the intellect accent: links, active states, drawn constellation lines. (Deepened from `#55498F` — closer to the night color, less lavender, more ink. Decision made 2026-07-18) |
 | `--gold` | `#C9A227` | The star accent: cursor star, flare moments, key numbers |
 | `--night` | `#14121F` | Chapter 02 inverted scene background (deep ink-violet night) |
 | `--paper-on-night` | `#EDE9DE` | Text color inside the night scene |
@@ -66,9 +66,9 @@ free, both preloaded.
 | # | Section | Label on page | Content |
 |---|---|---|---|
 | 0 | Intro (optional, ≤1s) | — | Scattered dots connect into one star, fade to hero. Skippable; cut entirely if it costs performance |
-| 1 | **Hero** | `26.85° N · 80.95° E` | Giant "Saubhagya" in Fraunces. Sub-line: the arc *Social Media Kid → Performance Marketer → The Strategist* rendered as a mini 3-star constellation that draws itself on load. One quip line. Scroll cue |
+| 1 | **Hero** | `26.85° N · 80.95° E` | Giant "Saubhagya Dubey" in Fraunces. Sub-line: the arc *Social Media Kid → Performance Marketer → The Strategist* rendered as a mini 3-star constellation that draws itself on load. One quip line. Scroll cue |
 | 2 | **Origin** | `Chapter 01 · The Dots` | Career timeline as constellation: star-points for 2016 (weddings), 2019 (real estate), 2024 (the ₹1-crore campaign). Scroll draws the connecting line; narrative text illuminates alongside (spotlight treatment) |
-| 3 | **Numbers** | `Chapter 02 · The Receipts` | THE set-piece. Page inverts to `--night`. Scene **pins**; stats appear one at a time as stars that flare gold, then count up. Scroll releases only after the last stat lands. (Direct answer to the v1 feedback: "numbers stay until seen") |
+| 3 | **Numbers** | `Chapter 02 · The Receipts` | THE set-piece. Page inverts to `--night`. Backdrop: a **≤10s looping ambient film** (Higgsfield — drifting starfield, three stars flare in career-timeline sequence, faint lines draw). Muted, autoplay, ≤3MB, lazy-loaded; static texture fallback on mobile/reduced-motion. On top of it the scene **pins**; stats appear one at a time as stars that flare gold, then count up — numbers stay live HTML text (crisp, animatable), never baked into the video. Scroll releases only after the last stat lands. (Answers two rounds of feedback: "numbers stay until seen" + "constellation panel looks boring") |
 | 4 | **Work** | `Chapter 03 · The Proof` | 2–4 selected case studies as quiet cards; each = client type, one sharp result line, one visual. Cards tilt/glow subtly toward the cursor |
 | 5 | **Playbook** | `Chapter 04 · The Method` | 3–4 working principles. Words illuminate as they cross the reading zone (scroll-linked spotlight text) |
 | 6 | **Contact** | `The Next Dot` | "Your business could be the next dot." One CTA (WhatsApp / email), links, tiny footer |
@@ -126,6 +126,7 @@ still-beautiful site.
 | Asset | Source | Status |
 |---|---|---|
 | 1–2 night-sky / constellation textures (subtle, paper-grain compatible) | Higgsfield | pending |
+| **≤10s ambient night-sky film** for Chapter 02 (starfield drift, 3 sequential star flares, lines drawing; loopable, no text baked in) | Higgsfield | pending |
 | Optional line-art strategist portrait | Higgsfield | pending |
 | Real case-study numbers + client references | Saubhagya | pending |
 | Contact channel (WhatsApp number / email) + domain choice | Saubhagya | pending |
