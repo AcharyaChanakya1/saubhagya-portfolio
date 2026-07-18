@@ -147,6 +147,9 @@ director.
   calls the reader dumb. The doubt must target their current MARKETING (the
   post-uploaders, the lazy agencies, the wasted spend), never their intelligence.
   Formula: honor what they built → question whether their marketing matches it.
+- **Selectivity rule (2026-07-18):** never present client roster as a count
+  ("three clients"). Frame as CHOOSY — takes few clients by choice, quality of
+  work over quantity. Scarcity = premium signal.
 - Headline candidates round 2 (2026-07-18), grouped by angle:
   - QUIET SUSPICION: "Your ads run. Your posts go up. So why does growth feel
     like luck?" · "If your marketing stopped tomorrow, would your sales even

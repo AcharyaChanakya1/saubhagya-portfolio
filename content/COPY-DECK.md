@@ -94,7 +94,9 @@
 ## 4 · CHAPTER 03 — THE PROOF  *(case cards, cursor-aware tilt)*
 
 **Chapter label:** `CHAPTER 03 · THE PROOF`
-**Intro line:** Three businesses trusting me right now.
+**Intro (selectivity frame — never imply a client count):**
+> I take on a few clients at a time, by choice. Director-level attention
+> doesn't divide well. A glimpse of the current board:
 
 **Card 1 — Perfect Interiors & Decorators · Dehradun**
 - *Interior design studio*
