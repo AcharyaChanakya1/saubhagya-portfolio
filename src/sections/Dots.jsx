@@ -1,59 +1,48 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import WordReveal from '../components/WordReveal.jsx'
+import { sfx } from '../lib/sound.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ENTRIES = [
+/**
+ * Chapter 01 · The Dots — v2.
+ * Desktop: the section PINS and the career travels HORIZONTALLY —
+ * a journey you ride through, station by station. Text cut to punch lines.
+ * Mobile / reduced-motion: compact vertical rail.
+ */
+const STATIONS = [
   {
-    year: '2017 · Weddingwood, Lucknow',
-    title: 'The first dot',
-    copy: (
-      <>A wedding photography studio taught me the first rule: <strong>attention is
-      bought, but trust is earned.</strong> Facebook ads brought the couples in —
-      the content made them stay.</>
-    ),
+    year: '2017',
+    label: 'Weddingwood · Lucknow',
+    title: 'The first dot.',
+    copy: <>Wedding photography taught the first rule: <strong>attention is bought.
+      Trust is earned.</strong></>,
   },
   {
-    year: '2017–2021 · Azea Gaia',
-    title: 'Positioning beats shouting',
-    copy: (
-      <>A Singapore-backed luxury project needed buyers, not clicks. Four years of
-      precision targeting and premium positioning later — <strong>the property
-      sold out.</strong> Management called the digital campaigns a key sales
-      driver. I call it proof that positioning beats shouting.</>
-    ),
+    year: '17–21',
+    label: 'Azea Gaia · Luxury FDI project',
+    title: 'Positioning beats shouting.',
+    copy: <>Four years of precision targeting. <strong>The property sold out.</strong></>,
   },
   {
-    year: '2021–2024 · Invest 101 Homes',
-    title: 'Strategy becomes a system',
-    copy: (
-      <>Five real-estate projects, one marketer. <strong>6,000+ qualified leads in
-      three years at ₹250 a lead</strong> — while the market paid double. This is
-      where strategy became a system: test, measure, refine, repeat.</>
-    ),
-    mini: '✦ 2021–2023 · MBA, Marketing — Lucknow University. Theory caught up with practice.',
+    year: '21–24',
+    label: 'Invest 101 Homes · Real estate',
+    title: 'Strategy becomes a system.',
+    copy: <><strong>6,000+ leads at ₹250 each</strong> — while the market paid double.</>,
   },
   {
-    year: '2024 · Medha Learning Foundation',
+    year: '2024',
+    label: 'Medha Learning Foundation',
     title: 'Budget decides reach. Strategy decides results.',
-    copy: (
-      <>An NGO with a ₹40,000 budget. The campaign reached <strong>over 1 crore
-      people</strong> and pulled <strong>70,000 form submissions.</strong> The
-      lesson that defines me.</>
-    ),
+    copy: <>₹40K → <strong>1 crore people → 70,000 forms.</strong></>,
   },
   {
-    year: 'Now · Independent',
-    title: 'The pattern, complete',
+    year: 'Now',
+    label: 'Independent',
+    title: 'The pattern, complete.',
     gold: true,
-    copy: (
-      <>Today I run growth for businesses that built their names over decades — an
-      event company, a showroom, an interiors studio. They don't need an agency.
-      <strong> They need one person who thinks like a director and works like
-      it's his own money.</strong></>
-    ),
+    copy: <>One person. A director's brain. <strong>Your business.</strong></>,
   },
 ]
 
@@ -70,69 +59,121 @@ function EntryStar({ gold }) {
 }
 
 export default function Dots() {
-  const railRef = useRef(null)
+  const stageRef = useRef(null)
+  const trackRef = useRef(null)
   const lineRef = useRef(null)
 
   useEffect(() => {
-    const rail = railRef.current
+    const stage = stageRef.current
+    const track = trackRef.current
     const path = lineRef.current
-    if (!rail || !path) return
+    if (!stage || !track) return
 
-    const ctx = gsap.context(() => {
-      // the connecting line draws with scroll
-      const len = path.getTotalLength ? path.getTotalLength() : 1000
-      gsap.set(path, { strokeDasharray: `${len}`, strokeDashoffset: len })
-      gsap.to(path, {
-        strokeDashoffset: 0,
+    const mm = gsap.matchMedia()
+
+    mm.add('(min-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
+      const getDist = () => Math.max(0, track.scrollWidth - window.innerWidth)
+
+      const tween = gsap.to(track, {
+        x: () => -getDist(),
         ease: 'none',
         scrollTrigger: {
-          trigger: rail,
-          start: 'top 72%',
-          end: 'bottom 62%',
+          trigger: stage,
+          start: 'top top',
+          end: () => '+=' + (getDist() + 300),
+          pin: true,
           scrub: 0.6,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
         },
       })
-      // each star flares when reached
-      rail.querySelectorAll('.dot-star .entry-star').forEach((star) => {
-        gsap.fromTo(
-          star,
+
+      if (path) {
+        const len = path.getTotalLength()
+        gsap.fromTo(path,
+          { strokeDasharray: len, strokeDashoffset: len },
+          {
+            strokeDashoffset: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: stage,
+              start: 'top top',
+              end: () => '+=' + (getDist() + 300),
+              scrub: 0.6,
+            },
+          })
+      }
+
+      gsap.utils.toArray('.station', track).forEach((station) => {
+        const star = station.querySelector('.entry-star')
+        gsap.fromTo(star,
           { scale: 0, transformOrigin: 'center' },
           {
-            scale: 1, duration: 0.6, ease: 'back.out(2.4)',
-            scrollTrigger: { trigger: star, start: 'top 74%' },
-          },
-        )
+            scale: 1, duration: 0.55, ease: 'back.out(2.4)',
+            scrollTrigger: {
+              trigger: station,
+              containerAnimation: tween,
+              start: 'left 72%',
+              onEnter: () => sfx.thump(),
+            },
+          })
+        gsap.fromTo(station.querySelector('.station-year'),
+          { xPercent: 14 },
+          {
+            xPercent: -8, ease: 'none',
+            scrollTrigger: {
+              trigger: station,
+              containerAnimation: tween,
+              start: 'left right',
+              end: 'right left',
+              scrub: true,
+            },
+          })
       })
-    }, rail)
-    return () => ctx.revert()
+    })
+
+    mm.add('(max-width: 767px), (prefers-reduced-motion: reduce)', () => {
+      // vertical fallback: stars flare on normal scroll
+      gsap.utils.toArray('.entry-star', track).forEach((star) => {
+        gsap.fromTo(star,
+          { scale: 0, transformOrigin: 'center' },
+          {
+            scale: 1, duration: 0.55, ease: 'back.out(2.4)',
+            scrollTrigger: { trigger: star, start: 'top 78%' },
+          })
+      })
+    })
+
+    return () => mm.revert()
   }, [])
 
   return (
-    <section className="section dots-section" id="dots">
-      <div className="chapter-label">Chapter 01 · The Dots</div>
-      <WordReveal
-        className="dots-intro"
-        text="Eight years, five industries, one pattern. Looking back, every campaign was a dot. Connect them and you see what I actually learned."
-      />
+    <section className="dots-section" id="dots">
+      <div className="section" style={{ paddingBottom: 0 }}>
+        <div className="chapter-label">Chapter 01 · The Dots</div>
+        <p className="dots-intro">Eight years. Five industries. One pattern.</p>
+      </div>
 
-      <div className="dots-rail" ref={railRef}>
-        <div className="dots-line" aria-hidden="true">
-          <svg preserveAspectRatio="none" viewBox="0 0 2 100">
-            <line ref={lineRef} x1="1" y1="0" x2="1" y2="100"
-              stroke="#4C4380" strokeWidth="2" strokeDasharray="0.5 1"
-              vectorEffect="non-scaling-stroke" />
+      <div className="dots-stage" ref={stageRef}>
+        <div className="dots-track" ref={trackRef}>
+          <svg className="dots-hline" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+            <path ref={lineRef} d="M 0 24 L 16 14 L 36 27 L 58 10 L 80 22 L 100 16"
+              fill="none" stroke="#4C4380" strokeWidth="1.5"
+              strokeDasharray="4 5" vectorEffect="non-scaling-stroke" opacity="0.55" />
           </svg>
-        </div>
 
-        {ENTRIES.map((e) => (
-          <article className={`dot-entry${e.gold ? ' is-gold' : ''}`} key={e.year}>
-            <div className="dot-star"><EntryStar gold={e.gold} /></div>
-            <div className="dot-year">{e.year}</div>
-            <h3 className="dot-title">{e.title}</h3>
-            <p className="dot-copy">{e.copy}</p>
-            {e.mini && <div className="dot-mini">{e.mini}</div>}
-          </article>
-        ))}
+          {STATIONS.map((s) => (
+            <article className={`station${s.gold ? ' is-gold' : ''}`} key={s.label}>
+              <div className="station-year" aria-hidden="true">{s.year}</div>
+              <div className="station-head">
+                <div className="dot-star"><EntryStar gold={s.gold} /></div>
+                <div className="station-label">{s.label}</div>
+              </div>
+              <h3 className="station-title">{s.title}</h3>
+              <p className="station-copy">{s.copy}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )

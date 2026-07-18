@@ -174,6 +174,91 @@ button { font-family: inherit; cursor: pointer; }
   display: flex; align-items: center; gap: 8px;
 }
 
+/* ============ CHAPTER 01 · DOTS — HORIZONTAL JOURNEY (desktop) ============ */
+.dots-stage { position: relative; overflow: hidden; }
+.dots-track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(48px, 7vw, 120px);
+  padding: 8vh var(--pad-x) 10vh;
+  width: max-content;
+  position: relative;
+  will-change: transform;
+}
+.dots-hline {
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 120px; width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.station {
+  flex: 0 0 auto;
+  width: clamp(320px, 44vw, 560px);
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+  min-height: 62svh;
+}
+.station-year {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.08;
+  position: absolute;
+  top: 0; left: -0.06em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.station-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.station-head .dot-star { position: static; width: 34px; height: 34px; flex: 0 0 auto; }
+.station-label {
+  font-size: 11.5px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--iris);
+}
+.station.is-gold .station-label { color: var(--gold); }
+.station-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.station-copy { color: var(--ink-soft); font-size: clamp(0.95rem, 1.3vw, 1.05rem); max-width: 30em; }
+.station-copy strong { color: var(--ink); font-weight: 600; }
+
+/* mobile / reduced-motion: the journey stacks vertically, no pin */
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .dots-track {
+    flex-direction: column;
+    width: auto;
+    gap: 64px;
+    padding: 40px var(--pad-x) 70px;
+  }
+  .dots-hline { display: none; }
+  .station { width: auto; min-height: 0; }
+  .station-year { position: static; font-size: 3.2rem; opacity: 0.12; margin-bottom: 6px; }
+}
+
+/* ============ SOUND PILL ============ */
+.sound-pill {
+  position: fixed; bottom: 22px; left: 22px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(25, 23, 19, 0.88);
+  color: rgba(246, 243, 236, 0.72);
+  border: none; border-radius: 999px;
+  backdrop-filter: blur(10px);
+  font-size: 12px; letter-spacing: 0.05em;
+  padding: 9px 16px;
+  transition: color .25s;
+}
+.sound-pill .sound-star { color: rgba(246,243,236,0.4); transition: color .25s, transform .4s; }
+.sound-pill.on { color: #fff; }
+.sound-pill.on .sound-star { color: var(--gold); transform: rotate(180deg); }
+@media (max-width: 640px) { .sound-pill { bottom: 16px; left: 16px; } }
+
 /* ============ CHAPTER 02 · RECEIPTS ============ */
 .receipts { background: var(--night); color: var(--paper-night); }
 .receipts-stage {
@@ -278,7 +363,19 @@ button { font-family: inherit; cursor: pointer; }
   transform-style: preserve-3d;
   will-change: transform;
   position: relative;
+  overflow: hidden;
 }
+/* shine sweep on hover */
+.proof-card::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0;
+  width: 55%; left: -70%;
+  background: linear-gradient(105deg, transparent, rgba(201, 162, 39, 0.09), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+.proof-card:hover::after { left: 130%; }
 .proof-card .coord { margin-bottom: 18px; }
 .proof-client { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; line-height: 1.2; }
 .proof-type { color: var(--ink-soft); font-size: 13.5px; margin-top: 4px; font-style: italic; }

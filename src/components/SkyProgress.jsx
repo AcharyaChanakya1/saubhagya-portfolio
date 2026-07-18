@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { sfx } from '../lib/sound.js'
 
 /** 7-star constellation that fills with reading progress (spec §5.5). */
 const STARS = [
@@ -18,7 +19,11 @@ export default function SkyProgress() {
       requestAnimationFrame(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight
         const p = max > 0 ? window.scrollY / max : 0
-        setLit(Math.min(STARS.length, Math.floor(p * STARS.length + 0.15)))
+        const next = Math.min(STARS.length, Math.floor(p * STARS.length + 0.15))
+        setLit((prev) => {
+          if (next > prev) sfx.tick()
+          return next
+        })
         setDone(p > 0.985)
         ticking.current = false
       })

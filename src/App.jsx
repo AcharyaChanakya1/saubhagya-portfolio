@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import StarCursor from './components/StarCursor.jsx'
 import SkyProgress from './components/SkyProgress.jsx'
 import PillNav from './components/PillNav.jsx'
+import SoundToggle from './components/SoundToggle.jsx'
 import Hero from './sections/Hero.jsx'
 import Dots from './sections/Dots.jsx'
 import Receipts from './sections/Receipts.jsx'
@@ -39,6 +40,7 @@ export default function App() {
       <StarCursor />
       <SkyProgress />
       <PillNav />
+      <SoundToggle />
       <main>
         <Hero />
         <Dots />

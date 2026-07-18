@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { sfx } from '../lib/sound.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -63,11 +64,12 @@ export default function Receipts() {
         },
       })
 
-      stats.forEach((stat) => {
+      stats.forEach((stat, i) => {
         const flare = stat.querySelector('.flare svg')
         const num = stat.querySelector('[data-count]')
 
         tl.to(stat, { opacity: 1, duration: 0.35 })
+        tl.call(() => sfx.star(i))
         tl.fromTo(flare, { scale: 0, rotate: -40, transformOrigin: 'center' },
           { scale: 1, rotate: 0, duration: 0.35, ease: 'back.out(2.2)' }, '<')
 
