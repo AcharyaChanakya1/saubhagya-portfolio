@@ -32,19 +32,14 @@ export default function NextDot() {
         <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
 
-      {/* Lucknow skyline — the maker's mark: Rumi Darwaza · Bara Imambara · Husainabad clock tower */}
-      <svg className="skyline" viewBox="0 0 300 64" aria-label="Lucknow skyline">
-        <path d="M 6 58 H 294" />
-        <path d="M 26 58 V 34 Q 26 18 46 14 Q 66 18 66 34 V 58" />
-        <path d="M 34 58 V 40 Q 34 30 46 27 Q 58 30 58 40 V 58" />
-        <path d="M 46 14 V 8" />
-        <path className="sky-gold" d="M 46 2 l 1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z" />
-        <path d="M 96 58 V 44 H 206 V 58" />
-        <path d="M 118 58 V 50 Q 118 46 122 46 Q 126 46 126 50 V 58 M 146 58 V 50 Q 146 46 150 46 Q 154 46 154 50 V 58 M 174 58 V 50 Q 174 46 178 46 Q 182 46 182 50 V 58" />
-        <path d="M 138 44 Q 138 30 151 27 Q 164 30 164 44" />
-        <path d="M 151 27 V 21" />
-        <path d="M 250 58 V 20 H 262 V 58 M 250 20 L 256 10 L 262 20 M 253 30 H 259" />
-      </svg>
+      {/* the maker's mark — the same Rumi Darwaza sketch that opened the site */}
+      <img
+        className="skyline-img"
+        src="/art/rumi-darwaza.webp"
+        alt="Rumi Darwaza, Lucknow — ink sketch"
+        loading="lazy"
+        width="1200" height="896"
+      />
 
       <footer className="site-footer">
         <span>Saubhagya Dubey · 26.85° N, 80.95° E</span>

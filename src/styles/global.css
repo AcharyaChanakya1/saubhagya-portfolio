@@ -380,15 +380,15 @@ button { font-family: inherit; cursor: pointer; }
   }
 }
 
-/* ============ FOOTER SKYLINE ============ */
-.skyline {
-  width: min(300px, 70vw);
-  margin: 0 auto 8px;
+/* ============ FOOTER MAKER'S MARK ============ */
+.skyline-img {
+  width: min(260px, 64vw);
+  height: auto;
+  margin: 0 auto 10px;
   display: block;
-  opacity: 0.5;
+  mix-blend-mode: multiply; /* melts the art's cream ground into the paper */
+  opacity: 0.85;
 }
-.skyline path { stroke: var(--ink); stroke-width: 1.4; fill: none; stroke-linecap: round; }
-.skyline .sky-gold { fill: var(--gold); stroke: none; }
 
 /* ============ CHAPTER 02 · RECEIPTS ============ */
 .receipts { background: var(--night); color: var(--paper-night); }
