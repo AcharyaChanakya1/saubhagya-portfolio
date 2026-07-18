@@ -32,6 +32,19 @@ body {
   overflow-x: hidden;
 }
 
+/* vintage newspaper frame — faded marketing-ad clippings hug the outer
+   edges on every viewport; the cream center stays clean (v3 texture pass). */
+.frame-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background-image: url('/textures/paper-frame-landscape.webp');
+  background-size: 100% 100%;
+  pointer-events: none;
+  opacity: 0.6; /* whisper level — clippings read as texture first */
+}
+@media (orientation: portrait) {
+  .frame-bg { background-image: url('/textures/paper-frame-portrait.webp'); }
+}
+
 /* sandpaper grain — coarser, warmer (v2 texture pass) */
 body::before {
   content: '';
@@ -270,15 +283,22 @@ button { font-family: inherit; cursor: pointer; }
 /* ============ ENTRANCE — RUMI DARWAZA ============ */
 .entrance {
   position: fixed; inset: 0; z-index: 200;
-  background: var(--paper);
+  background: var(--paper) url('/textures/paper-frame-landscape.webp');
+  background-size: 100% 100%;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 20px;
 }
-.rd-svg { width: min(540px, 82vw); height: auto; overflow: visible; }
-.rd-path { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.rd-path.rd-iris { stroke: var(--iris); stroke-width: 1.6; }
-.rd-star-el { fill: var(--gold); }
+.rd-wrap { position: relative; width: min(600px, 84vw); }
+.rd-art {
+  width: 100%; height: auto; display: block;
+  mix-blend-mode: multiply; /* melts the art's cream ground into the page paper */
+}
+.rd-star-svg {
+  position: absolute; top: -3.5%; left: 50%;
+  width: 28px; height: 28px;
+  transform: translateX(-50%);
+}
 .rd-caption {
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink-soft); opacity: 0;

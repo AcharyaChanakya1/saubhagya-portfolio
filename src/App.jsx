@@ -39,6 +39,7 @@ export default function App() {
 
   return (
     <>
+      <div className="frame-bg" aria-hidden="true" />
       <Entrance />
       <TopBar />
       <StarCursor />
