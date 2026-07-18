@@ -100,6 +100,20 @@ still-beautiful site.
 
 ---
 
+## 5b. Positioning (locked 2026-07-18)
+
+**This site exists to win FREELANCE CLIENTS.** Not to get hired, not to promote
+Chanakya Digital (agency is no longer operating — do not foreground it).
+
+- **Star of the site:** the results Saubhagya delivers for businesses.
+- **Reader:** a business owner / decision-maker who needs leads and growth —
+  real estate developers first (his deepest proof), then local SMBs, EdTech/NGO.
+- **His roles (Azea, Invest 101, Medha) are reframed as PROOF**, not employment
+  history — "brands I've grown," not "where I worked."
+- **CTA energy:** "Let's grow your business" — a conversation, not an application.
+- Chanakya Digital: mention only if useful as "founded my own agency" credibility;
+  never as a live service. Default = omit.
+
 ## 6. Copy Voice
 
 - Calm confidence. Short declaratives. The numbers do the bragging.

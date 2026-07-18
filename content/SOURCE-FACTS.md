@@ -64,6 +64,22 @@ Makeup studio (beauty), a famous Lucknow sweet shop, Azea Botanica, jewellery
 business, interior designer, electronics — but **majority = real estate**.
 Ranked "almost every client" in top-10 GMB local ranking; strong Google Ads too.
 
+## CURRENT FREELANCE CLIENTS (his strongest proof — actively freelancing now)
+
+| Client | Business | Location | What he did | Result |
+|---|---|---|---|---|
+| **Tathastu Events** | Event management, 20 yrs old | Lucknow | Handling now (currently) | *number TBD — ask* |
+| **Hari Om Electricals** | Symphony cooler showroom / wholesaler, 2 decades old | Gurugram | Google Ads + social ads (this season) | **6,000–8,000 website purchases** + **100+ calls/day** via Google My Business |
+| **Perfect Interiors & Decorators** | Interior design & decor | Dehradun | Meta Ads, **₹50K spend** | **₹40–50 lakh** in interior projects landed |
+
+- Perfect Interiors ROI ≈ ₹50K → ₹40–50L = ~80–100× return on ad spend — a
+  headline-grade number for a business-owner audience (spend in, revenue out).
+- These 3 are CURRENT and freelance → they prove he freelances successfully today.
+- Naming: user volunteered all names openly → treat as OK to display publicly
+  (confirm once before deploy).
+- NOTE: Perfect Interiors (Dehradun) is a known prior project — a website was
+  already built for them.
+
 ## Skills & Tools (CV)
 - **Ad platforms:** Meta Ads, Google Ads, LinkedIn Ads, Google Ad Grants
 - **AI:** ChatGPT, Claude, Gemini, Perplexity
@@ -89,6 +105,34 @@ Ranked "almost every client" in top-10 GMB local ranking; strong Google Ads too.
 - Office: DLF My Pad, Tower B1, Unit 618, Vibhuti Khand, Gomti Nagar, Lucknow 226010
 - Agency email: chanakyadigi@gmail.com | Site: chanakyadigi.com
 - Agency phones: +91 88817-88826 / 87368-60717
+
+## Positioning & Offer (his words, 2026-07-18)
+
+**What he is:** A growth marketer who works like a **fractional marketing
+director** for his clients — not a vendor who "uploads a photo and calls it
+marketing."
+
+**The full offer (everything except video):**
+- Strategy & planning (the lead-in — he thinks first)
+- Market research + competitor research
+- Content strategy → content calendar → publishing on timeline
+- SEO (incl. GMB local ranking — top-10 for nearly every client)
+- Google Ads + Meta Ads, run against the strategy
+- Team guidance / direction (can lead a creative team)
+- Static creatives — YES. **Video editing/creation — NO** (the one boundary)
+- Monthly & quarterly measurement → clean reports he interprets & presents to
+  clients himself (he reads the data, not just pulls it)
+
+**His philosophy (gold for Chapter 04 — The Method):**
+"Real marketing involves psychology, strategy, content, data, concepts like
+**5A**, deep research, understanding the audience — everything." Strategy-first,
+data-closed-loop. Anti-"just post something."
+
+**Ideal client:** Wealthy business owners who **don't operate like corporates —
+they move like a well-known local name.** Premium local businesses (real estate
+first, then high-end local brands) who want director-level marketing thinking
+without a corporate agency. He effectively becomes their outsourced marketing
+director.
 
 ## OPEN — still need from Saubhagya
 - Which 3 numbers headline Chapter 02, and the ONE gold hero number
