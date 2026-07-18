@@ -6,3 +6,4 @@ design/extract.mjs
 design/cv.pdf
 *.log
 .DS_Store
+dist/
