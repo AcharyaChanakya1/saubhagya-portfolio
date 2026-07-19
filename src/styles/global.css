@@ -491,6 +491,26 @@ button { font-family: inherit; cursor: pointer; }
 }
 .receipts-closer b { color: var(--paper-night); font-weight: 560; }
 
+/* spotlight overlay — an elliptical hole of light tracks the active metric;
+   everything else in the stage sits under a ~0.8-alpha dark veil. Driven
+   every scrub frame via CSS custom properties (cheap: one repaint layer). */
+.spotlight-overlay {
+  position: absolute; inset: 0; z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse var(--srx, 30%) var(--sry, 14%) at var(--sx, 50%) var(--sy, 50%),
+    transparent 0%, transparent 55%,
+    rgba(6, 5, 12, var(--salpha, 0)) 100%
+  );
+}
+
+/* fixed chrome dims in sync with the spotlight, so the whole visible page
+   reads as darkened, not just the pinned stage */
+.pill-nav, .sound-pill, .sky-progress { transition: opacity 0.4s ease; }
+body.spotlight-active .pill-nav,
+body.spotlight-active .sound-pill,
+body.spotlight-active .sky-progress { opacity: 0.14; }
+
 /* ============ CHAPTER 03 · PROOF ============ */
 .proof-section { max-width: 1200px; margin: 0 auto; }
 .proof-intro {
